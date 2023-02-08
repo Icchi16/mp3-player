@@ -1,0 +1,158 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+* {
+  width: fit-content;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-sizing: border-box;
+  color: whitesmoke;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+audio {
+  display: none;
+}
+
+#app {
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.music-container {
+  padding: 40px 20px;
+  margin-top: 8vw;
+  background: none;
+  overflow: hidden;
+  border-radius: 40px;
+  box-shadow: 0px 17px 40px 0px rgb(65, 65, 65);
+}
+
+.song-img {
+  border-radius: 30px;
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  /* transition: scale 1s; */
+  transition: border-radius 400ms;
+}
+
+.playing {
+  /* scale: 0.9; */
+  border-radius: 50%;
+  animation: rotating 20s linear infinite;
+}
+
+.song-info {
+  margin: 15px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.song-info * {
+  margin: 5px 0;
+  font-size: 1.5rem;
+  text-overflow: ellipsis;
+}
+
+.song-name {
+  font-weight: 900;
+}
+
+.song-artist {
+  font-size: 1.3rem;
+}
+
+.song-control {
+  margin: 0 auto;
+  width: 70%;
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+
+.song-control * {
+  font-size: 3rem;
+  cursor: pointer;
+  line-height: 0;
+}
+
+.song-playpause i {
+  font-size: 4rem;
+}
+
+.gradient-background {
+  height: 100%;
+  background: linear-gradient(62deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  animation: gradient 15s ease infinite;
+  background-size: 400% 400%;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.song-progress {
+  width: 100%;
+}
+
+.progress-bar {
+  --completed-time: 200px;
+  margin-top: 30px;
+  background-color: rgba(255, 255, 255, 0.329);
+  border-radius: 50px;
+  height: 8px;
+  width: 100%;
+  appearance: none;
+  position: relative;
+}
+
+.progress-bar::before {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  content: "";
+  height: 8px;
+  width: var(--completed-time);
+  border-radius: 50px;
+
+  background-color: white;
+}
+
+.progress-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  z-index: 2;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: white;
+  cursor: pointer;
+}
